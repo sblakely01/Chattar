@@ -99,6 +99,7 @@ class App extends React.Component {
     this.setState({errors, [name]: value}, () => {
       console.log(errors)
     })
+    this.setState({[name]: value});
   }
 
   // getMessages(location) {
