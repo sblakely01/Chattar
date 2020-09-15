@@ -11,7 +11,7 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 app.use('/', express.static(path.join(__dirname, '/database')));
 app.use('/', express.static(path.join(__dirname, '/client')));
 
-const dataPath = "./messages.json";
+const dataPath = (path.join(__dirname, '/database/messages.json'));
 
 app.get('/api/messages', (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
