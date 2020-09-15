@@ -1,8 +1,56 @@
 <!DOCTYPE HTML>
 <head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+
 
 </head>
-<body>
-  Hello World Thing!
+<body style="margin: 0; overflow: hidden;">
+  <a-scene
+      vr-mode-ui="enabled: true"
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+    >
+    <a-camera gps-camera gps-camera="minDistance: 10, max-Distance: 50;" camera="fov: 100;" position="0 2 0" rotation-reader listener look-controls="reverseMouseDrag:true; touchEnabled: false"> </a-camera>
+      <a-text
+        value="Hi!"
+        look-at="[gps-camera]"
+        scale="1 1 1"
+        gps-entity-place="latitude: 38.095840; longitude: -85.692730;"
+
+
+      ></a-text>
+      <a-text
+      value="Hello from Blue Lick!"
+      look-at="[gps-camera]"
+      scale="1 1 1"
+      gps-entity-place="latitude: 37.131451; longitude: -85.694695;"
+
+
+    ></a-text>
+    <a-text
+    value="Hello from down the street!"
+    look-at="[gps-camera]"
+    scale="1 1 1"
+    gps-entity-place="latitude: 38.094444; longitude: -85.686965;"
+
+
+  ></a-text>
+  <a-text
+  value="Hello from one block over!"
+  look-at="[gps-camera]"
+  scale="1 1 1"
+  gps-entity-place="latitude: 38.094174; longitude: -85.693149;"
+  distance="30"
+
+></a-text>
+
+    </a-scene>
+  <div id="main">
+
+  </div>
+
+  <script src="bundle.js"></script>
 </body>
 </HTML>

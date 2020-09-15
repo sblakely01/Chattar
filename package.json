@@ -1,9 +1,10 @@
 {
-  "name": "sitewords",
+  "name": "ChattARBox",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack -d --watch",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,18 @@
   },
   "homepage": "https://github.com/sblakely01/hrr47-mvp#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "axios": "^0.20.0",
+    "babel-loader": "^8.1.0",
+    "cassandra-driver": "^4.6.0",
+    "express": "^4.17.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
   }
 }
