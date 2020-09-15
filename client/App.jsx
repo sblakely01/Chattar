@@ -40,10 +40,12 @@ class App extends React.Component {
       for (var keys in response.data)
       {
         console.log(response.data[keys]);
+        let latitude = response.data[keys].lat;
+        let longitude = response.data[keys].lng;
           var entityEl = document.createElement('a-text');
-          entityEl.setAttribute('gps-entity-place', `latitude: ${response.data[keys].lat}; longitude: ${response.data[keys].lng};`)
+          entityEl.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
           entityEl.setAttribute('value', response.data[keys].message);
-          entityEl.setAttribute('scale', '2 2 2');
+          entityEl.setAttribute('scale', '2.0, 2.0, 2.0');
           console.log(response.data[keys].message);
           entityEl.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
