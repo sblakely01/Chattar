@@ -45,7 +45,7 @@ class App extends React.Component {
           var entityEl = document.createElement('a-text');
           entityEl.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
           entityEl.setAttribute('value', response.data[keys].message);
-          entityEl.setAttribute('scale', '2.0, 2.0, 2.0');
+          entityEl.setAttribute('scale', '2.0 2.0 2.0');
           console.log(response.data[keys].message);
           entityEl.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
