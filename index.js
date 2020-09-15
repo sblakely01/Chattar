@@ -8,11 +8,12 @@ const fs = require("fs");
 
 app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/public')));
+app.use('/', express.static(path.join(__dirname, '/database')));
 app.use('/', express.static(path.join(__dirname, '/client')));
 
-const dataPath = "./database/messages.json";
+const dataPath = "./messages.json";
 
-app.get('/database/messages.json', (req, res) => {
+app.get('/api/messages', (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
     if (err) {
       console.error(err);
