@@ -41,7 +41,7 @@ class App extends React.Component {
       {
         console.log(response.data[keys]);
           var entityEl = document.createElement('a-text');
-          entityEl.setAttribute('gps-entity-place', `latitude: " ${response.data[keys].lat}; longitude: ${response.data[keys].lng};`)
+          entityEl.setAttribute('gps-entity-place', `latitude: ${response.data[keys].lat}; longitude: ${response.data[keys].lng};`)
           entityEl.setAttribute('value', response.data[keys].message);
           entityEl.setAttribute('scale', '2 2 2');
           console.log(response.data[keys].message);
