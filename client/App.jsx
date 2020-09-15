@@ -119,7 +119,7 @@ class App extends React.Component {
         lng: this.state.longitude,
         sender: this.state.sender
       }
-      axios.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data)
+      axios.post('http://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data)
       .then((res) => {
         console.log(res);
       })
