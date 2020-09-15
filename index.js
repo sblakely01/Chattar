@@ -16,6 +16,7 @@ app.use('/', express.static(path.join(__dirname, '/database')));
 app.use('/', express.static(path.join(__dirname, '/client')));
 
 const dataPath = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
+const dataPathAlso = 'http://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
 
 app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
@@ -28,7 +29,7 @@ app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/d
 });
 
 app.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
-  fs.writeFile(dataPath, JSON.stringify(req.body), err => {
+  fs.writeFile(dataPathAlso, JSON.stringify(req.body), err => {
     if (err) {
       console.log(err);
     }
