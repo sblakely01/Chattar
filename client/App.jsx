@@ -97,7 +97,7 @@ class App extends React.Component {
         break;
     }
     this.setState({errors, [name]: value}, () => {
-      console.log(errors)
+      console.log(name);
     })
   }
 

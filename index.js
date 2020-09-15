@@ -1,11 +1,13 @@
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3006;
 const path = require('path');
 const bodyParser = require("body-parser");
 const fs = require("fs");
 // Enables CORS
+const cors = require('cors');
+app.use(cors({ origin: true }));
 
 
 app.use(express.json());
