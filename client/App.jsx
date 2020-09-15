@@ -43,13 +43,16 @@ class App extends React.Component {
         let size = document.createAttribute('scale');
         let words = document.createAttribute('text');
         var sceneEl = document.querySelector('a-scene');
-        let latitude = response.data[keys].lat;
-        let longitude = response.data[keys].lng;
+        let rand = Math.random() * .000001;
+        let latitude = response.data[keys].lat + rand;
+        rand = Math.random() * .000001;
+        let longitude = response.data[keys].lng + rand;
           var entityEl = document.createElement('a-text');
 
           // console.log('gps-entity-place', 'latitude: ' + latitude + '; longitude: ' + longitude + ';');
           entityEl.setAttribute('value', response.data[keys].message);
           // entityEl.setAttribute('scale', {x: 2, y: 2, z: 2 });
+          entityEl.setAttribute('look-at', '[gps-camera]');
           console.log(response.data[keys].message);
           // entityEl.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
           entityEl.setAttribute('gps-entity-place', `latitude: ${38.0958419}; longitude: ${-85.6927302};`);
@@ -109,7 +112,17 @@ class App extends React.Component {
   submitHandler(event) {
     event.preventDefault();
     if (validateForm(this.state.errors)) {
-      console.info('Valid Form')
+      console.info('Valid Form');
+      data = {
+        message: this.state.message,
+        lat: this.state.latitude,
+        lng: this.state.longitude,
+        sender: this.state.sender
+      }
+      axios.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data)
+      .then((res) => {
+        console.log(res);
+      })
     } else {
       console.error('Invalid Form')
     }

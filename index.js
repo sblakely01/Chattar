@@ -23,6 +23,16 @@ app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/d
   });
 });
 
+app.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', (req, res) => {
+  fs.writeFile(dataPath, JSON.stringify(req.body), err => {
+    if (err) {
+      console.log(err);
+    }
+    console.log('Done');
+  })
+
+})
+
 
 // app.get('/api/location', cors(), (req, res) => {
 //   data = [
