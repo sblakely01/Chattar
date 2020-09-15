@@ -13,7 +13,7 @@ app.use('/', express.static(path.join(__dirname, '/client')));
 
 const dataPath = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
 
-app.get('/api/messages', (req, res) => {
+app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
     if (err) {
       console.log(err);

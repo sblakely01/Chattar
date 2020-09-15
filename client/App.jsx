@@ -31,7 +31,7 @@ class App extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
   componentDidMount() {
-     axios.get('/api/messages')
+     axios.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json')
      .then((result) => {getMessages(result); console.log(result); this.setState({messageFiles: result.data})})
      .catch((err) => {console.log('Could not get user location')});
     var sceneEl = document.querySelector('a-scene');
