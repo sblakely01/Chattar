@@ -36,20 +36,32 @@ class App extends React.Component {
       //  this.getMessages(result);
        console.log(response);
        this.setState({messageFiles: response.data});
-      var sceneEl = document.querySelector('a-scene');
+
       for (var keys in response.data)
       {
-        console.log(response.data[keys]);
+        let gps = document.createAttribute('gps-entity-place');
+        let size = document.createAttribute('scale');
+        let words = document.createAttribute('text');
+        var sceneEl = document.querySelector('a-scene');
         let latitude = response.data[keys].lat;
         let longitude = response.data[keys].lng;
           var entityEl = document.createElement('a-text');
-          entityEl.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+
+          // console.log('gps-entity-place', 'latitude: ' + latitude + '; longitude: ' + longitude + ';');
           entityEl.setAttribute('value', response.data[keys].message);
-          entityEl.setAttribute('scale', '2.0 2.0 2.0');
+          // entityEl.setAttribute('scale', {x: 2, y: 2, z: 2 });
           console.log(response.data[keys].message);
+          // entityEl.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+          entityEl.setAttribute('gps-entity-place', `latitude: ${38.0958419}; longitude: ${-85.6927302};`);
+          gps.value = `latitude: ${latitude}; longitude: ${longitude};`;
+          words.value = response.data[keys].message;
+          size.value = '2 2 2';
           entityEl.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+            console.log('Place Loaded');
           });
+          entityEl.setAttributeNode(gps);
+          entityEl.setAttributeNode(size);
           sceneEl.appendChild(entityEl);
       }
     })
