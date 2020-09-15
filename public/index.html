@@ -12,11 +12,11 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-    <a-camera gps-camera gps-camera="minDistance: 10, max-Distance: 50;" camera="fov: 100;" position="0 2 0" rotation-reader listener look-controls="reverseMouseDrag:true; touchEnabled: false"> </a-camera>
+    <a-camera gps-camera gps-camera="minDistance: 1, max-Distance: 50;" camera="fov: 100;" position="0 2 0" rotation-reader listener look-controls="reverseMouseDrag:true; touchEnabled: false"> </a-camera>
       <a-text
         value="Hi!"
         look-at="[gps-camera]"
-        scale="1 1 1"
+        scale="2 2 2"
         gps-entity-place="latitude: 38.095841; longitude: -85.692730;"
 
 
@@ -24,7 +24,7 @@
       <a-text
       value="Hello from Blue Lick!"
       look-at="[gps-camera]"
-      scale="1 1 1"
+      scale="2 2 2"
       gps-entity-place="latitude: 37.131451; longitude: -85.694695;"
 
 
@@ -32,17 +32,16 @@
     <a-text
     value="Hello from down the street!"
     look-at="[gps-camera]"
-    scale="1 1 1"
-    gps-entity-place="latitude: 38.094444; longitude: -85.686965;"
+    scale="2 2 2"
+    gps-entity-place="latitude: 37.131451; longitude: -85.694695;"
 
 
   ></a-text>
   <a-text
   value="Hello from one block over!"
   look-at="[gps-camera]"
-  scale="1 1 1"
-  gps-entity-place="latitude: 38.094174; longitude: -85.693149;"
-  distance="30"
+  scale="2 2 2"
+  gps-entity-place="latitude: 37.131451; longitude: -85.694695;"
 
 ></a-text>
 
