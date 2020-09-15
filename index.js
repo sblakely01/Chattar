@@ -12,12 +12,12 @@ app.use('/', express.static(path.join(__dirname, '/client')));
 
 const dataPath = "./database/messages.json";
 
-app.get('/api/messages', (req, res) => {
+app.get('/database/messages.json', (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
     if (err) {
       console.error(err);
     }
-
+    console.log(data);
     res.send(JSON.parse(data));
   });
 });

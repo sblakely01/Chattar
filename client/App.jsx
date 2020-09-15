@@ -32,7 +32,7 @@ class App extends React.Component {
   }
   componentDidMount() {
      axios.get('/api/messages')
-     .then((result) => {getMessages(result); this.setState({messageFiles: result.data})})
+     .then((result) => {getMessages(result); console.log(result); this.setState({messageFiles: result.data})})
      .catch((err) => {console.log('Could not get user location')});
     var sceneEl = document.querySelector('a-scene');
     for (var keys in this.state.messageFiles)
