@@ -1,13 +1,12 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3006;
 const path = require('path');
 const bodyParser = require("body-parser");
 const fs = require("fs");
 // Enables CORS
-const cors = require('cors');
-app.use(cors({ origin: true }));
+
 
 app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/public')));
@@ -16,7 +15,7 @@ app.use('/', express.static(path.join(__dirname, '/client')));
 
 const dataPath = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
 
-app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', (req, res) => {
+app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
     if (err) {
       console.log(err);
@@ -26,7 +25,7 @@ app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/d
   });
 });
 
-app.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', (req, res) => {
+app.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
   fs.writeFile(dataPath, JSON.stringify(req.body), err => {
     if (err) {
       console.log(err);
@@ -60,4 +59,4 @@ app.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/
 //   res.json(data);
 // });
 
-app.listen(port,  () => console.log('Server listening on ' + port));
+app.listen(port,  cors(), () => console.log('Server listening on ' + port));
