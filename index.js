@@ -3,10 +3,25 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3006;
 const path = require('path');
+const bodyParser = require("body-parser");
+const fs = require("fs");
 
 app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/public')));
 app.use('/', express.static(path.join(__dirname, '/client')));
+
+const dataPath = "./database/messages.json";
+
+app.get('/api/messages', (req, res) => {
+  fs.readFile(dataPath, "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+    }
+
+    res.send(JSON.parse(data));
+  });
+});
+
 
 // app.get('/api/location', cors(), (req, res) => {
 //   data = [

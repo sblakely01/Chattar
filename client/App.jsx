@@ -15,6 +15,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
+      messageFiles: {},
       message: '',
       latitude: 0,
       longitude: 0,
@@ -30,9 +31,21 @@ class App extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
   }
   componentDidMount() {
-    // axios.get('/api/location')
-    // .then((result) => {getMessages(result)})
-    // .catch((err) => {console.log('Could not get user location')});
+     axios.get('/api/messages')
+     .then((result) => {getMessages(result); this.setState({messageFiles: result.data})})
+     .catch((err) => {console.log('Could not get user location')});
+    var sceneEl = document.querySelector('a-scene');
+    for (var keys in this.state.messageFiles)
+    {
+      var entityEl = document.createElement('a-entity');
+      var string = "latitude: " + keys.latitude + "; " + "longitude: " + keys.longitude + "; ";
+      entityEl.setAttribute('a-text'), {
+      value: keys.message,
+      scale: "2 2 2",
+      "gps-entity-place": string,
+      }
+      sceneEl.appendChild(entityEl);
+    }
   }
 
   handleInputChange(event) {
@@ -86,7 +99,7 @@ class App extends React.Component {
   render() {
     const {errors} = this.state;
     return (
-      <div style={{position: "fixed", top: "10px", width: "100%", textAlign: "center", zIndex: "100"}}>
+      <div style={{position: "fixed", top: "10px", width: "100%", textAlign: "center", zIndex: "100", justifyContent: "center", left: "15px"}}>
 
         <form onSubmit={this.submitHandler}>
           <label>

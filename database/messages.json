@@ -1,0 +1,14 @@
+{
+  "1" : {
+    "message" : "Hello!",
+    "latitude" : 38.0958417,
+    "longitude" : -85.6927308,
+    "sender" : "Kentucky"
+  },
+  "2" : {
+    "message" : "Hi!",
+    "latitude" : 38.0958417,
+    "longitude" : -85.6927308,
+    "sender" : "Kentucky"
+  }
+}
