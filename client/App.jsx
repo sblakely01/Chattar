@@ -32,7 +32,11 @@ class App extends React.Component {
   }
   componentDidMount() {
      axios.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json')
-     .then((result) => {getMessages(result); console.log(result); this.setState({messageFiles: result.data})})
+     .then((result) => {
+      //  getMessages(result);
+       console.log(result);
+       this.setState({messageFiles: result.data})
+      })
      .catch((err) => {console.log('Could not get user location')});
     var sceneEl = document.querySelector('a-scene');
     for (var keys in this.state.messageFiles)
