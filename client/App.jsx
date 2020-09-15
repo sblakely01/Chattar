@@ -33,23 +33,25 @@ class App extends React.Component {
   componentDidMount() {
      axios.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json')
      .then((response) => {
-      //  getMessages(result);
-       console.log(result);
-       this.setState({messageFiles: response.data})
-      })
-     .catch((err) => {console.log(err)});
-    var sceneEl = document.querySelector('a-scene');
-    for (var keys in this.state.messageFiles)
-    {
-      var entityEl = document.createElement('a-entity');
-      var string = "latitude: " + keys.latitude + "; " + "longitude: " + keys.longitude + "; ";
-      entityEl.setAttribute('a-text'), {
-      value: keys.message,
-      scale: "2 2 2",
-      "gps-entity-place": string,
+      //  this.getMessages(result);
+       console.log(response);
+       this.setState({messageFiles: response.data});
+      var sceneEl = document.querySelector('a-scene');
+      for (var keys in response.data)
+      {
+        console.log(response.data[keys]);
+          var entityEl = document.createElement('a-text');
+          entityEl.setAttribute('gps-entity-place', `latitude: " ${response.data[keys].lat}; longitude: ${response.data[keys].lng};`)
+          entityEl.setAttribute('value', response.data[keys].message);
+          entityEl.setAttribute('scale', '2 2 2');
+          console.log(response.data[keys].message);
+          entityEl.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+          });
+          sceneEl.appendChild(entityEl);
       }
-      sceneEl.appendChild(entityEl);
-    }
+    })
+    .catch((err) => {console.log(err)});
   }
 
   handleInputChange(event) {
@@ -104,7 +106,7 @@ class App extends React.Component {
     const {errors} = this.state;
     return (
       <div style={{position: "fixed", top: "10px", width: "100%", textAlign: "center", zIndex: "100", justifyContent: "center", left: "15px"}}>
-
+        {document.getElements}
         <form onSubmit={this.submitHandler}>
           <label>
             Message:
