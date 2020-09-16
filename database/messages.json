@@ -1,6 +1,6 @@
 {
   "1" : {
-    "message" : "...",
+    "message" : "1",
     "lat" : 38.0958419,
     "lng" : -85.6927302,
     "sender" : "Kentucky"
@@ -10,12 +10,12 @@
       "lat" : 38.0958419,
       "lng" : -85.6927302,
     "sender" : "Kentucky"
-  }
+  },
    "3" : {
     "message" : "Test!",
       "lat" : 38.0958418,
       "lng" : -85.6927302,
     "sender" : "Kentucky"
   }
-  
+
 }
