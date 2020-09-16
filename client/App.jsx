@@ -120,7 +120,8 @@ class App extends React.Component {
         sender: this.state.sender
       }
       const myHeaders = new Headers({
-        "Content-Type": "jsonP",
+        "Content-Type": "Application/json",
+        dataType: "jsonp",
         Accept: "application/json"
       })
       axios.post('https://sblakely01.github.io/dev/database/messages.json', data, {
