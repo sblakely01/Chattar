@@ -21,7 +21,7 @@ app.use('/', express.static(path.join(__dirname, '/database')));
 app.use('/', express.static(path.join(__dirname, '/client')));
 
 const dataPath = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
-const dataPathAlso = 'https://sblakely01.github.io/dev/database/messages.json';
+const dataPathAlso = 'https://sblakely01.github.io/database/messages.json';
 
 app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
