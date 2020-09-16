@@ -124,7 +124,7 @@ class App extends React.Component {
         dataType: "jsonp",
         Accept: "application/json"
       })
-      axios.post('https://raw.githack.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data, {
+      axios.put('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data, {
         headers: myHeaders,
       })
       .then((res) => {
