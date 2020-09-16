@@ -119,14 +119,8 @@ class App extends React.Component {
         lng: this.state.longitude,
         sender: this.state.sender
       }
-      const myHeaders = new Headers({
-        "Content-Type": "Application/json",
-        dataType: "jsonp",
-        Accept: "application/json"
-      })
-      axios.put('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data, {
-        headers: myHeaders,
-      })
+
+      axios.put('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data)
       .then((res) => {
         console.log(res);
       })
