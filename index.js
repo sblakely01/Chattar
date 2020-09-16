@@ -5,14 +5,7 @@ const port = process.env.PORT || 3006;
 const path = require('path');
 const bodyParser = require("body-parser");
 const fs = require("fs");
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-  res.header('Access-Control-Allow-Credentials', 'true')
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+
 
 
 app.use(express.json());
@@ -23,7 +16,7 @@ app.use('/', express.static(path.join(__dirname, '/client')));
 const dataPath = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
 const dataPathAlso = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
 
-app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
+app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', (req, res) => {
   fs.readFile(dataPath, "utf8", (err, data) => {
     if (err) {
       console.log(err);
