@@ -33,7 +33,7 @@ app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/d
   });
 });
 
-app.post('https://sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
+app.post('https://sblakely01.github.io/database/messages.json', cors(), (req, res) => {
   fs.writeFile(dataPathAlso, JSON.stringify(req.body), err => {
     if (err) {
       console.log(err);
