@@ -10,7 +10,6 @@ const fs = require("fs");
 
 app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/public')));
-app.use('/', express.static(path.join(__dirname, '/database')));
 app.use('/', express.static(path.join(__dirname, '/client')));
 
 const dataPath = 'https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json';
