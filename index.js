@@ -39,6 +39,7 @@ app.post('https://sblakely01.github.io/dev/database/messages.json', cors(), (req
       console.log(err);
     }
     console.log('Done');
+    res.sendStatus(200);
   })
 
 })
