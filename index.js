@@ -5,9 +5,11 @@ const port = process.env.PORT || 3006;
 const path = require('path');
 const bodyParser = require("body-parser");
 const fs = require("fs");
-// Enables CORS
-const cors = require('cors');
-app.use(cors({ origin: true }));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 
 app.use(express.json());
@@ -28,7 +30,7 @@ app.get('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/d
   });
 });
 
-app.post('http://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
+app.post('https://raw.githubusercontent.com/sblakely01/sblakely01.github.io/dev/database/messages.json', cors(), (req, res) => {
   fs.writeFile(dataPathAlso, JSON.stringify(req.body), err => {
     if (err) {
       console.log(err);
