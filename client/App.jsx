@@ -124,7 +124,7 @@ class App extends React.Component {
         dataType: "jsonp",
         Accept: "application/json"
       })
-      axios.post('https://sblakely01.github.io/dev/database/messages.json', data, {
+      axios.post('https://raw.githack.com/sblakely01/sblakely01.github.io/dev/database/messages.json', data, {
         headers: myHeaders,
       })
       .then((res) => {
@@ -139,7 +139,7 @@ class App extends React.Component {
   render() {
     const {errors} = this.state;
     return (
-      <div style={{position: "fixed", top: "10px", width: "100%", textAlign: "center", zIndex: "100", justifyContent: "center", left: "15px"}}>
+      <div style={{backgroundColor: "#86bbbd", position: "fixed", top: "10px", width: "100%", textAlign: "center", zIndex: "100", justifyContent: "center", left: "15px", color: "#f5d0cb"}}>
         {document.getElements}
         <form onSubmit={this.submitHandler}>
           <label>
